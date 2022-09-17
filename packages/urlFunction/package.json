@@ -7,7 +7,9 @@
     "aws-cdk-lib": "^2.42.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "deploy": "cdk deploy",
+    "bootstrap": "cdk bootstrap"
   },
   "repository": {
     "type": "git",
@@ -18,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/antstanley/functionurl-cdk/issues"
   },
-  "homepage": "https://github.com/antstanley/functionurl-cdk#readme"
+  "homepage": "https://github.com/antstanley/functionurl-cdk#readme",
+  "dependencies": {
+    "aws-cdk": "^2.42.0"
+  }
 }

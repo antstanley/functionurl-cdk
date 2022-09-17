@@ -1,4 +1,4 @@
-import { App, Stack, StackProps } from 'aws-cdk-lib'
+import { App, Stack, StackProps, CfnOutput } from 'aws-cdk-lib'
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
 import { Runtime, FunctionUrlAuthType } from 'aws-cdk-lib/aws-lambda'
 import { ServicePrincipal } from 'aws-cdk-lib/aws-iam'
@@ -11,7 +11,6 @@ class AppStack extends Stack {
 
     const functionPath = join(
       __dirname,
-      '..',
       '..',
       'functions',
       'urlFunction',
@@ -38,6 +37,12 @@ class AppStack extends Stack {
     const servicePrincipal = new ServicePrincipal('lambda.amazonaws.com')
     functionUrl.grantInvokeUrl(servicePrincipal)
     this.url = functionUrl.url
+
+    new CfnOutput(this, 'functionUrl', {
+      value: functionUrl.url,
+      description: 'Function URL',
+      exportName: 'functionUrl'
+    })
   }
 }
 

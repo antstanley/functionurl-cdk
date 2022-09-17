@@ -1,7 +1,6 @@
 import { App, Stack, StackProps } from 'aws-cdk-lib'
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs'
 import { Runtime, FunctionUrlAuthType } from 'aws-cdk-lib/aws-lambda'
-import { ServicePrincipal } from 'aws-cdk-lib/aws-iam'
 import { join } from 'path'
 
 class AppStack extends Stack {
@@ -11,7 +10,6 @@ class AppStack extends Stack {
 
     const functionPath = join(
       __dirname,
-      '..',
       '..',
       'functions',
       'invokerFunction',
@@ -28,6 +26,10 @@ class AppStack extends Stack {
       awsSdkConnectionReuse: true,
       bundling: {
         target: 'es2020'
+      },
+      environment: {
+        INVOKE_URL:
+          '<enter url of the cross account function you want to invoke>'
       }
     })
 
