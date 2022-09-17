@@ -1,0 +1,22 @@
+{
+  "name": "invokerfunction",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/stacks/index.js",
+  "devDependencies": {
+    "aws-cdk-lib": "^2.42.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antstanley/functionurl-cdk.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/antstanley/functionurl-cdk/issues"
+  },
+  "homepage": "https://github.com/antstanley/functionurl-cdk#readme"
+}
